@@ -7,42 +7,63 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Table of contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* [Usage](#usage)
+  * [Setup your .env config file](#setup-your-env-config-file)
+  * [Install Laravel dependencies](#install-laravel-dependencies)
+  * [Migrate the tables](#migrate-the-tables)
+  * [Generate some test data](#generate-some-test-data)
+  * [Compile the front-end](#compile-the-front-end)
+  * [Launch the Laravel backend](#launch-the-Laravel-backend)        
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Usage
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project was built with [Laravel](https://laravel.com/), [Livewire](https://livewire.laravel.com/), [Blade](https://laravel.com/docs/blade) and [Tailwind CSS](https://tailwindcss.com/) and Alpinejs.
 
-## Learning Laravel
+### Setup your .env config file
+Make sure to add the database configuration in your .env file such as database name, username, password and port.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Install Laravel dependencies
+In the root of your Laravel application, run the ``php composer.phar install`` (or ``composer install``) command to install all of the framework's dependencies.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Migrate the tables
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+In order to migrate the tables and setup the bare minimum structure for this app
+to display some data you shoud open your terminal, locate and enter this project
+directory and run the following command
 
-## Laravel Sponsors
+``php artisan migrate``
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Generate some test data
 
-### Premium Partners
+Once you have all your database tables setup you can then generate some test data
+which will come from our pre-made database table seeders.
+In order to do so, in your terminal run the following command
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+``php artisan db:seed``
+
+N.B. If you run this command twice, all the test data will be duplicated and added to the existing table data, if you want to avoid having duplicate test data please
+make sure to ``truncate`` the following ``datafeeds`` table in your database.
+
+### Compile the front-end
+
+In order to compile all the CSS and JS assets for the front-end of this site you need to install NPM dependencies. To do that, open the terminal, type npm install and press the ``Enter`` key.
+
+Then run ``npm run dev`` in the terminal to run a development server to re-compile static assets when making changes to the template.
+
+When you have done with changes, run ``npm run build`` for compiling and minify for production.
+
+### Launch the Laravel backend
+
+In order to make this Laravel installation work properly on your local machine you
+can run the following command in your terminal window.
+
+``php artisan serve``
+
+You should receive a message similar to this
+``Starting Laravel development server: http://127.0.0.1:8000`` simply copy the URL
+in your browser and you'll be ready to test out your new mosaic laravel app.
 
 ## Contributing
 
